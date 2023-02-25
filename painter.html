@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Introduction to javascript
+        </title>
+    </head>
+
+
+<body>
+    <h1>Painter entry Sai Dinesh Kopparthi</h1>
+    <h2>Getting input</h2>
+
+    <form>
+        <label for="painter">The hidden painter name</label>
+        <input type="password" id="painter" name="painter" value="Monet"> <br><br>
+
+        <label for="guessOfPainter">Guess the painter</label>
+        <input type="text" id="painterGuess" name="painterGuess"> <br><br>   
+    </form>
+
+    <button type="button" onclick="checkPainter()">Check the guess</button>
+
+    <p id="result">Count results displayed here</p>
+
+    <script>
+        var good = 0
+        var oops = 0
+
+        function checkPainter() {
+            let painter = document.getElementById("painter").value
+            let painterGuess = document.getElementById("painterGuess").value
+
+            if(painter == painterGuess){
+                good++
+                alert("You got it right")
+            }
+            else{
+                oops++
+                alert("Sorry")
+            }
+            
+            document.getElementById("result").innerHTML = "Count of good: " + good + "\nCount of oops: " + oops
+        }
+    </script>
+</body>
+</html>
