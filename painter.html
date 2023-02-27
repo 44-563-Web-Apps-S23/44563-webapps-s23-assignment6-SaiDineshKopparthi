@@ -28,6 +28,8 @@
         var oops = 0
 
         function checkPainter() {
+
+            console.log("Getting form values")
             let painter = document.getElementById("painter").value
             let painterGuess = document.getElementById("painterGuess").value
 
@@ -43,5 +45,33 @@
             document.getElementById("result").innerHTML = "Count of good: " + good + "\nCount of oops: " + oops
         }
     </script>
+
+<div>
+    Click on the image to change it
+    <br>
+    <img id = "plantImage" src="images/Kalanchoe.jpg" width = 100px; height = 100px onclick = "selectImage()">
+</div>
+
+<script>
+    var useImage = 1;
+
+    function selectImage() {
+
+        switch(useImage){
+            case 1:
+                document.getElementById("plantImage").src = "images/Pachystegia.jpg"
+                useImage++;
+                break;
+            case 2:
+                document.getElementById("plantImage").src = "images/Rhamnus.jpg"
+                useImage++;
+                break;
+            case 3:
+                document.getElementById("plantImage").src = "images/Kalanchoe.jpg"
+                useImage = 1;
+                break;
+        }
+    }
+</script>
 </body>
 </html>
