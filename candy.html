@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    Checkboxes and much more with JS
+</head>
+
+<body>
+
+    <h1>Sai Dinesh Kopparthi chooses candy</h1>
+
+    <form>
+        <input type="checkbox" id="cb1_chocolate" name="topping1" value="True">
+        <label for="cb1_chocolate">Dark Chocolate</label></br>
+      
+        <input type="checkbox" id="cb1_nuts" name="topping2" value="True">
+        <label for="cb1_nuts">Nuts</label></br>
+      
+        <input type="checkbox" id="cb1_chewy" name="topping3"  value="False">
+        <label for="cb1_chewy">Chewy</label></br>
+
+        <input type="button" onclick="selectBox()" value="Select a box">
+    </form>
+
+
+    <p id="result">Results will be displayed here</p>
+
+    <script>
+        var my_candy_box = {}
+        
+        function selectBox(){
+            my_candy_box = {}
+            my_candy_box.dark = document.getElementById("cb1_chocolate").checked
+            my_candy_box.nuts = document.getElementById("cb1_nuts").checked
+            my_candy_box.chewy = document.getElementById("cb1_chewy").checked
+
+            document.getElementById("result").innerHTML = JSON.stringify(my_candy_box)
+        } 
+    </script>
+
+</body>
+
+</html>
