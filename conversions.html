@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Learning javascript
+    </title>
+</head>
+<body>
+
+    <h1>
+        Sai Dinesh Kopparthi shows currency conversions
+    </h1>
+    <h2>Getting input</h2>
+
+    <form>
+        <label for="baseAmount">Enter base amount</label>
+        <input type="number" id="baseAmount" name="baseAmount" value="50"> <br><br>
+
+        <label for="conRate">Enter the conversion rate</label>
+        <input type="number" id="conRate" name="conRate" value="35"> <br><br>
+
+        <input type="button" onclick="convert()" value="Show conversions">
+    </form>
+
+
+    <p id="result">Results will be displayed here</p>
+
+    <script>
+
+        function convert(){
+            let toShow = ""
+            let baseValue = document.getElementById("baseAmount").value
+            let conValue =  document.getElementById("conRate").value
+
+            for(var i=0; i<5; i++){
+                let convertedAmount = baseValue*(2**i)*conValue
+                toShow += baseValue*(2**i) +" is "+ convertedAmount+";"
+            }
+            document.getElementById("result").innerHTML = "Conversions are: " + toShow
+        }
+    </script>
+
+</body>
+
+</html>
