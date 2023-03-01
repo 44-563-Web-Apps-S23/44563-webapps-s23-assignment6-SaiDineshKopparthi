@@ -21,9 +21,17 @@
 
         <input type="button" onclick="selectBox()" value="Select a box">
     </form>
-
-
     <p id="result">Results will be displayed here</p>
+
+    <form>
+        <label for="size">Enter the size</label>
+        <input type="text" id="size" name="size" value="size"><br><br>
+
+        <label for="price">Enter price</label>
+        <input type="text" id="price" name="price"><br><br>
+
+        <input type="button" onclick="updateBox()" value="Update the box">
+    </form>
 
     <script>
         var my_candy_box = {}
@@ -36,6 +44,17 @@
 
             document.getElementById("result").innerHTML = JSON.stringify(my_candy_box)
         } 
+
+        function updateBox(){
+            let size = document.getElementById("size").value
+            let price = document.getElementById("price").value
+
+            my_candy_box["size"] = size
+            my_candy_box["price"] = price
+            console.log(my_candy_box);
+            document.getElementById("result").innerHTML = JSON.stringify(my_candy_box)
+        }
+
     </script>
 
 </body>
