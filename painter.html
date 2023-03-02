@@ -1,30 +1,49 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Introduction to javascript
-        </title>
-    </head>
+
+<head>
+    <title>
+        Introduction to javascript
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
+</head>
 
 
 <body>
     <h1>Painter entry Sai Dinesh Kopparthi</h1>
     <h2>Getting input</h2>
 
-    <form>
-        <label for="painter">The hidden painter name</label>
-        <input type="password" id="painter" name="painter" value="Monet"> <br><br>
+    <div class="container">
+        <form>
+            <div class="mb-3 form-group">
+                <label class="form-label" for="painter">The hidden painter name</label>
+                <input class="form-control" type="password" id="painter" name="painter" value="Monet">
+            </div>
 
-        <label for="guessOfPainter">Guess the painter</label>
-        <input type="text" id="painterGuess" name="painterGuess"> <br><br>   
+            <div class="mb-3 form-group">
+                <label class="form-label" for="guessOfPainter">Guess the painter</label>
+                <input class="form-control" type="text" id="painterGuess" name="painterGuess">
+            </div>
 
-        <button id="button" type="button" onclick="checkPainter()">Check the guess</button>
-        
-    </form>
+            <button class="btn btn-info" id="button" type="button" onclick="checkPainter()">Check the guess</button>
 
-    
+        </form>
+    </div>
 
-    <p id="result">Count results displayed here</p>
+
+    <div class="container">
+        <p id="result">Count results displayed here</p>
+    </div>
 
     <script>
         var good = 0
@@ -36,53 +55,55 @@
             let painter = document.getElementById("painter").value
             let painterGuess = document.getElementById("painterGuess").value
 
-            if(painter == painterGuess){
+            if (painter == painterGuess) {
                 good++
                 alert("You got it right")
             }
-            else{
+            else {
                 oops++
                 alert("Sorry")
             }
-            
+
             document.getElementById("result").innerHTML = "Count of good: " + good + "\nCount of oops: " + oops
 
-            if(oops == 10){
+            if (oops == 10) {
                 document.getElementById("button").onclick = alertPopUp()
             }
 
-            function alertPopUp(){
+            function alertPopUp() {
                 alert("Sorry, ran out of guesses")
             }
         }
     </script>
 
-<div>
-    Click on the image to change it
-    <br>
-    <img id = "plantImage" src="images/Kalanchoe.jpg" width = 100px; height = 100px onclick = "selectImage()">
-</div>
+    <div class="container">
+        Click on the image to change it
+        <br>
+        <img class="img-fluid" id="plantImage" src="images/Kalanchoe.jpg" width=100px; height=100px
+            onclick="selectImage()">
+    </div>
 
-<script>
-    var useImage = 1;
+    <script>
+        var useImage = 1;
 
-    function selectImage() {
+        function selectImage() {
 
-        switch(useImage){
-            case 1:
-                document.getElementById("plantImage").src = "images/Pachystegia.jpg"
-                useImage++;
-                break;
-            case 2:
-                document.getElementById("plantImage").src = "images/Rhamnus.jpg"
-                useImage++;
-                break;
-            case 3:
-                document.getElementById("plantImage").src = "images/Kalanchoe.jpg"
-                useImage = 1;
-                break;
+            switch (useImage) {
+                case 1:
+                    document.getElementById("plantImage").src = "images/Pachystegia.jpg"
+                    useImage++;
+                    break;
+                case 2:
+                    document.getElementById("plantImage").src = "images/Rhamnus.jpg"
+                    useImage++;
+                    break;
+                case 3:
+                    document.getElementById("plantImage").src = "images/Kalanchoe.jpg"
+                    useImage = 1;
+                    break;
+            }
         }
-    }
-</script>
+    </script>
 </body>
+
 </html>
