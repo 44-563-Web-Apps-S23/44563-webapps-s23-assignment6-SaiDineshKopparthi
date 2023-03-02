@@ -18,7 +18,7 @@
         <label for="guessOfPainter">Guess the painter</label>
         <input type="text" id="painterGuess" name="painterGuess"> <br><br>   
 
-        <button type="button" onclick="checkPainter()">Check the guess</button>
+        <button id="button" type="button" onclick="checkPainter()">Check the guess</button>
         
     </form>
 
@@ -46,6 +46,14 @@
             }
             
             document.getElementById("result").innerHTML = "Count of good: " + good + "\nCount of oops: " + oops
+
+            if(oops == 10){
+                document.getElementById("button").onclick = alertPopUp()
+            }
+
+            function alertPopUp(){
+                alert("Sorry, ran out of guesses")
+            }
         }
     </script>
 
