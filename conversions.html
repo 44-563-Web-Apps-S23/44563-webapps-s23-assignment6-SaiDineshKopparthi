@@ -5,6 +5,17 @@
     <title>
         Learning javascript
     </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -14,28 +25,49 @@
     </h1>
     <h2>Getting input</h2>
 
-    <form>
-        <label for="baseAmount">Enter base amount</label>
-        <input type="number" id="baseAmount" name="baseAmount" value="50"> <br><br>
+    <div class="container">
 
-        <label for="conRate">Enter the conversion rate</label>
-        <input type="number" id="conRate" name="conRate" value="35"> <br><br>
+        <form>
+            <div class="mb-3 form-group">
+                <label class="form-label" for="baseAmount">Enter base amount</label>
+                <input class="form-control" type="number" id="baseAmount" name="baseAmount" value="50">
+            </div>
 
-        <input type="button" onclick="convert()" value="Show conversions">
-    </form>
-    <p id="result">Results will be displayed here</p>
+            <div class="mb-3 form-group">
+                <label class="form-label" for="conRate">Enter the conversion rate</label>
+                <input class="form-control" type="number" id="conRate" name="conRate" value="35">
+            </div>
 
-    <form>
-        <input type="radio" id="avg" name="operation" value="mean" onclick="chooseOp()">
-        <label for="avg">average</label></br>
-      
-        <input type="radio" id="max" name="operation" value="maximum" onclick="chooseOp()">
-        <label for="max">max</label></br>
-      
-        <input type="radio" id="min" name="operation" value="minimum" onclick="chooseOp()">
-        <label for="min">min</label></br>
-    </form>
-    <p id="result2">Results will be displayed here</p>
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <input class="btn btn-primary" type="button" onclick="convert()" value="Show conversions">
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <p id="result">Results will be displayed here</p>
+    </div>
+
+    <div class="container">
+        <form>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="avg" name="operation" value="mean" onclick="chooseOp()">
+                <label class="form-check-label" for="avg">average</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="max" name="operation" value="maximum" onclick="chooseOp()">
+                <label class="form-check-label" for="max">max</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" id="min" name="operation" value="minimum" onclick="chooseOp()">
+                <label class="form-check-label" for="min">min</label>
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <p id="result2">Results will be displayed here</p>
+    </div>
 
     <script>
 
@@ -51,27 +83,27 @@
             document.getElementById("result").innerHTML = "Conversions are: " + toShow
         }
 
-        function chooseOp(){
+        function chooseOp() {
             let baseValue = document.getElementById("baseAmount").value
             let conValue = document.getElementById("conRate").value
 
-            if(document.getElementById("avg").checked){
-                let avg = (parseInt(baseValue)+parseInt(conValue))/2
-                document.getElementById("result2").innerHTML = "avg of "+ baseValue + " and " + conValue + " is " + avg
+            if (document.getElementById("avg").checked) {
+                let avg = (parseInt(baseValue) + parseInt(conValue)) / 2
+                document.getElementById("result2").innerHTML = "avg of " + baseValue + " and " + conValue + " is " + avg
             }
-            else if(document.getElementById("max").checked){
+            else if (document.getElementById("max").checked) {
                 let max = Math.max(baseValue, conValue)
-                document.getElementById("result2").innerHTML = "max of "+ baseValue + " and " + conValue + " is " + max
+                document.getElementById("result2").innerHTML = "max of " + baseValue + " and " + conValue + " is " + max
             }
-            else if(document.getElementById("min").checked){
+            else if (document.getElementById("min").checked) {
                 let min = Math.min(baseValue, conValue)
-                document.getElementById("result2").innerHTML = "min of "+ baseValue + " and " + conValue + " is " + min
+                document.getElementById("result2").innerHTML = "min of " + baseValue + " and " + conValue + " is " + min
             }
-            
+
         }
     </script>
 
-    
+
 </body>
 
 </html>
